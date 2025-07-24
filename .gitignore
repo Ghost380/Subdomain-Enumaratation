@@ -1,0 +1,19 @@
+# Python bytecode and cache
+__pycache__/
+*.pyc
+
+# Virtual environment folder
+# Common names are venv, env, .venv, etc. Add your specific folder name.
+venv/
+env/
+.venv/
+
+# IDE and editor specific folders
+.vscode/
+.idea/
+
+# Environment variables file (for storing secrets)
+.env
+
+# macOS specific file
+.DS_Store
