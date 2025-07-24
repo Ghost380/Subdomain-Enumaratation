@@ -1,55 +1,83 @@
-# Subdomain Enumerator 🕵️‍♂️
+# Simple Subdomain Enumerator
 
-A simple and fast Python script to discover subdomains for a given domain using a wordlist. This tool demonstrates basic reconnaissance techniques, web requests, and concurrent processing.
+A fast, simple, and effective Python script for discovering subdomains of a given domain using a wordlist. This tool uses multithreading to perform checks concurrently, making the enumeration process significantly faster.
 
-## ✨ Features
+![A screenshot of the terminal showing the script running and finding subdomains.](https://i.imgur.com/b0yCg1L.png)
 
--   **Fast Enumeration**: Uses multithreading to check multiple subdomains concurrently.
--   **Easy to Use**: Simple command-line interface.
--   **Customizable**: Use any wordlist you provide.
+---
 
-## 🛠️ Installation
+## Features
 
-1.  **Clone the repository:**
-    ```sh
-    git clone [https://github.com/Ghost380/subdomain-enumerator.git]
-    cd subdomain-enumerator
-    ```
+-   **User-Friendly**: Prompts for the target domain interactively.
+-   **Fast Enumeration**: Uses a thread pool to check multiple subdomains at once.
+-   **Customizable Threads**: Allows you to specify the number of threads for performance tuning.
+-   **Wildcard Detection**: Automatically checks for wildcard DNS configurations to reduce false positives.
+-   **Smart Protocol Checking**: Tries to connect via `https` first and falls back to `http`.
+-   **Minimal Dependencies**: Only requires Python and the `requests` library.
 
-2.  **Install dependencies:**
-    It's recommended to use a virtual environment.
-    ```sh
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    pip install -r requirements.txt
-    ```
+---
 
-## 🚀 Usage
+## Requirements
 
-Run the script from your terminal using the following command structure.
+-   Python 3.x
+-   The `requests` library
 
-```sh
-python subdomain_enumerator.py -d <domain> -w <wordlist_path>
-```
+---
 
-### Example
+## Setup & Usage
 
-```sh
-python subdomain_enumerator.py -d example.com -w wordlist.txt
-```
+### 1. Install Dependencies
 
-### Command-line Arguments
+If you don't have the `requests` library installed, open your terminal and run:
 
--   `-d`, `--domain`: **(Required)** The target domain (e.g., `google.com`).
--   `-w`, `--wordlist`: **(Required)** The path to the file containing subdomains to test.
--   `-t`, `--threads`: (Optional) The number of threads to use for scanning (default is 10).
+```bash
+pip install requests
 
-### Example with more threads
+2. Prepare the Wordlist
+Create a file named wordlist.txt in the same directory as the script. Add a list of potential subdomain names to this file, with one name per line.
 
-```sh
-python subdomain_enumerator.py -d example.com -w wordlist.txt -t 50
-```
+Example wordlist.txt:
 
-## 📜 License
+www
+api
+dev
+test
+blog
+shop
+mail
+ftp
+staging
 
-This project is licensed under the MIT License.
+3. Run the Script
+Open a terminal, navigate to the project directory, and run the script using the py or python command.
+
+py subdomain_enumerator.py
+
+The script will then prompt you to enter the target domain.
+
+Optional: Specify Number of Threads
+You can use the -t or --threads flag to set the number of concurrent threads (default is 20).
+
+py subdomain_enumerator.py -t 50
+
+Example
+Here is an example of running the script and its potential output:
+
+# Navigate to the script's directory
+C:\Users\YourUser\Desktop> cd SubdomainTool
+
+# Run the script
+C:\Users\YourUser\Desktop\SubdomainTool> py subdomain_enumerator.py
+
+# The script will prompt for input
+Enter the target domain (e.g., google.com): example.com
+
+# The script starts the enumeration process
+[*] Starting subdomain enumeration for: example.com
+[*] Using wordlist: wordlist.txt
+[*] Number of threads: 20
+--------------------------------------------------
+[+] Found Subdomain: [https://www.example.com](https://www.example.com)
+[+] Found Subdomain: [https://blog.example.com](https://blog.example.com)
+--------------------------------------------------
+[*] Enumeration complete.
