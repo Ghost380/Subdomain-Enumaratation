@@ -32,8 +32,10 @@ If you don't have the `requests` library installed, open your terminal and run:
 
 ```bash
 pip install requests
+```
 
 2. Prepare the Wordlist
+
 Create a file named wordlist.txt in the same directory as the script. Add a list of potential subdomain names to this file, with one name per line.
 
 Example wordlist.txt:
