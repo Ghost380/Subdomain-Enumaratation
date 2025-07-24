@@ -12,7 +12,7 @@ A simple and fast Python script to discover subdomains for a given domain using 
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/your-username/subdomain-enumerator.git](https://github.com/your-username/subdomain-enumerator.git)
+    git clone [https://github.com/Ghost380/subdomain-enumerator.git]
     cd subdomain-enumerator
     ```
 
